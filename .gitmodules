@@ -1,0 +1,3 @@
+[submodule "icc-travis"]
+	path = icc-travis
+	url = git@github.com:nemequ/icc-travis.git
