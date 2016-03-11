@@ -17,5 +17,7 @@ unzip -qq /tmp/julia.zip -d /tmp
 mv /tmp/julia-${JULIA_VERSION//\//-} /tmp/julia-source
 cd /tmp/julia-source
 cat "USEICC = 1\nUSEIFC = 1\nUSE_INTEL_MKL = 1\nUSE_INTEL_MKL_FFT = 1\nUSE_INTEL_LIBM = 1\n" > Make.user
-make
-export PATH=$PAHT:/tmp/julia-source$
+make check-whitespace
+make -j 3
+export PATH=$PAHT:/tmp/julia-source/bin$
+julia -e 'versioninfo()'
