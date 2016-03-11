@@ -3,7 +3,7 @@
 # Install Intel compilers
 #wget -q -O /tmp/install-icc.sh \
 #    "https://raw.githubusercontent.com/nemequ/icc-travis/master/install-icc.sh"
-sudo bash ./install-icc.sh --components icc,ifort,mkl 
+sudo bash ./install-icc.sh --components icc,ifort,mkl || exit 1
 source ~/.bashrc
 
 # Get the source of Julia and compile it.
