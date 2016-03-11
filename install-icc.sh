@@ -177,14 +177,11 @@ ln -s "${DESTINATION}"/licenses ~/Licenses
 # next item in our .travis.yml, and adding a line to ~/.bashrc doesn't
 # work either, so we'll just dump a bunch of symlinks in a directory
 # which is already in $PATH.
-SYMDIR="${HOME}/.local/bin"
-if [ ! -e "${SYMDIR}" ]; then
-    mkdir -p "${SYMDIR}"
-fi
+#SYMDIR="${HOME}/.local/bin"
+#if [ ! -e "${SYMDIR}" ]; then
+#    mkdir -p "${SYMDIR}"
+#fi
 
 ls -l "${DESTINATION}"/compilers_and_libraries_*/linux/bin
-
-echo "Looking for libimf..."
-find "${DESTINATION}" -name 'libimf.so*'
 
 echo "Installation successful!"

@@ -4,7 +4,7 @@
 #wget -q -O /tmp/install-icc.sh \
 #    "https://raw.githubusercontent.com/nemequ/icc-travis/master/install-icc.sh"
 sudo bash ./install-icc.sh --components icc,ifort,mkl || exit 1
-source ~/.bashrc
+source ${HOME}/intel/compilers_and_libraries_2016/linux/bin/compilervars.sh intel64 && echo "Source completed"
 
 # Get the source of Julia and compile it.
 JULIA_VERSION="release-0.4"
@@ -19,5 +19,5 @@ cd /tmp/julia-source
 cat "USEICC = 1\nUSEIFC = 1\nUSE_INTEL_MKL = 1\nUSE_INTEL_MKL_FFT = 1\nUSE_INTEL_LIBM = 1\n" > Make.user
 make check-whitespace
 make -j 3
-export PATH=$PAHT:/tmp/julia-source/bin$
+export PATH=$PAHT:/tmp/julia-source/bin
 julia -e 'versioninfo()'
