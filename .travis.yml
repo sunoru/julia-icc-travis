@@ -1,7 +1,10 @@
 language: bash
-sudo: false
+sudo: required
+dist: trusty
+
 notifications:
     email: false
+
 script:
     - ./install-julia.sh
     - julia test/simple.jl
