@@ -9,7 +9,7 @@
 wget -q -O /tmp/install-icc.sh \
     "https://raw.githubusercontent.com/sunoru/julia-icc-travis/master/install-icc.sh"
 chmod 755 /tmp/install-icc.sh
-sudo /tmp/install-icc.sh --components icc,ifort,mkl,ipp,openmp --dest /opt/intel || exit 1
+sudo /tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel || exit 1
 source /opt/intel/bin/compilervars.sh intel64 && echo "Source completed"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/ism/bin/intel64
 
