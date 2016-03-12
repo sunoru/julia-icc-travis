@@ -31,7 +31,7 @@ echo "USE_INTEL_LIBM = 1" >> Make.user
 which icc || exit 1
 ls -alh /opt/intel/compilers_and_libraries_2016.0.109/linux/compiler/lib/intel64/
 ls -alh /opt/intel/compilers_and_libraries_2016.0.109/linux/mkl/lib/intel64/
-#make -j 3
+make -j 3
 #cat /tmp/julia-source/deps/libuv/config.log
 export PATH=$PAHT:/tmp/julia-source/bin
 julia -e 'versioninfo()'
