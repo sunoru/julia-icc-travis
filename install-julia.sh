@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if (whoami != root) then
+    echo "Please run as root"
+    exit 1
+fi
+
 # Install Intel compilers
 wget -q -O /tmp/install-icc.sh \
     "https://raw.githubusercontent.com/sunoru/julia-icc-travis/master/install-icc.sh"
