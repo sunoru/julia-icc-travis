@@ -18,8 +18,9 @@ mv /tmp/julia-${JULIA_VERSION//\//-} /tmp/julia-source
 cd /tmp/julia-source
 echo "USEICC = 1\nUSEIFC = 1\nUSE_INTEL_MKL = 1\nUSE_INTEL_MKL_FFT = 1\nUSE_INTEL_LIBM = 1" > Make.user
 which icc || exit 1
-echo $PATH
-echo $LD_LIBRARY_PATH
+cat Makefile
+cat Make.inc
+cat Make.user
 # make -j 3
 export PATH=$PAHT:/tmp/julia-source/bin
 julia -e 'versioninfo()'
