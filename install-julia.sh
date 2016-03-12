@@ -16,8 +16,10 @@ wget -q -O /tmp/julia.zip "https://github.com/JuliaLang/julia/archive/$JULIA_VER
 unzip -qq /tmp/julia.zip -d /tmp
 mv /tmp/julia-${JULIA_VERSION//\//-} /tmp/julia-source
 cd /tmp/julia-source
-echo "USEICC = 1\nUSEIFC = 1\nUSE_INTEL_MKL = 1\nUSE_INTEL_MKL_FFT = 1\nUSE_INTEL_LIBM = 1\n$(shell echo "Make.user")" > Make.user
+echo "USEICC = 1\nUSEIFC = 1\nUSE_INTEL_MKL = 1\nUSE_INTEL_MKL_FFT = 1\nUSE_INTEL_LIBM = 1" > Make.user
 which icc || exit 1
-make -j 3
+echo $PATH
+echo $LD_LIBRARY_PATH
+# make -j 3
 export PATH=$PAHT:/tmp/julia-source/bin
 julia -e 'versioninfo()'

@@ -182,6 +182,6 @@ ln -s "${DESTINATION}"/licenses ~/Licenses
 #    mkdir -p "${SYMDIR}"
 #fi
 
-ls -l "${DESTINATION}"/compilers_and_libraries_*/linux/bin
+# ls -l "${DESTINATION}"/compilers_and_libraries_*/linux/bin
 
 echo "Installation successful!"
