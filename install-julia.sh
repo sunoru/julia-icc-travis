@@ -11,6 +11,7 @@ wget -q -O /tmp/install-icc.sh \
 chmod 755 /tmp/install-icc.sh
 /tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel || exit 1
 source /opt/intel/bin/compilervars.sh intel64 && echo "Source completed"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/ism/bin/intel64
 
 # Get the source of Julia and compile it.
 JULIA_VERSION="release-0.4"
