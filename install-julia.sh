@@ -18,11 +18,11 @@ JULIA_VERSION="release-0.4"
 if [ $# == 1 ]; then
     JULIA_VERSION=$1
 fi
+cd /tmp
+git clone https://github.com/JuliaLang/julia.git --depth 1 --branch $JULIA_VERSION || exit 1
+mv julia julia-source
+cd /julia-source
 echo "Build Julia of version $JULIA_VERSION"
-wget -q -O /tmp/julia.zip "https://github.com/JuliaLang/julia/archive/$JULIA_VERSION.zip"
-unzip -qq /tmp/julia.zip -d /tmp
-mv /tmp/julia-${JULIA_VERSION//\//-} /tmp/julia-source
-cd /tmp/julia-source
 echo "USEICC = 1" > Make.user
 echo "USEIFC = 1" >> Make.user
 echo "USE_INTEL_MKL = 1" >> Make.user
