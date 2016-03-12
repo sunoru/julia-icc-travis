@@ -29,7 +29,8 @@ echo "USE_INTEL_MKL = 1" >> Make.user
 echo "USE_INTEL_MKL_FFT = 1" >> Make.user
 echo "USE_INTEL_LIBM = 1" >> Make.user
 which icc || exit 1
-make -j 3
-cat /tmp/julia-source/deps/libuv/config.log
+ls /opt/intel/compilers_and_libraries_2016.0.109/linux/compiler/lib/intel64/libimf
+#make -j 3
+#cat /tmp/julia-source/deps/libuv/config.log
 export PATH=$PAHT:/tmp/julia-source/bin
 julia -e 'versioninfo()'
