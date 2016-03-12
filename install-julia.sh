@@ -30,6 +30,6 @@ echo "USE_INTEL_MKL_FFT = 1" >> Make.user
 echo "USE_INTEL_LIBM = 1" >> Make.user
 which icc || exit 1
 make -j 3
-cat config.log
+cat /tmp/julia-source/deps/libuv/config.log
 export PATH=$PAHT:/tmp/julia-source/bin
 julia -e 'versioninfo()'
