@@ -21,7 +21,7 @@ fi
 cd /tmp
 git clone https://github.com/JuliaLang/julia.git --depth 1 --branch $JULIA_VERSION || exit 1
 mv julia julia-source
-cd /julia-source
+cd julia-source
 echo "Build Julia of version $JULIA_VERSION"
 echo "USEICC = 1" > Make.user
 echo "USEIFC = 1" >> Make.user
