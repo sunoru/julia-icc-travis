@@ -29,6 +29,6 @@ echo "USE_INTEL_MKL = 1" >> Make.user
 echo "USE_INTEL_MKL_FFT = 1" >> Make.user
 echo "USE_INTEL_LIBM = 1" >> Make.user
 which icc || exit 1
-make -j
+make -j 3
 sudo make install
 julia -e 'versioninfo()' || exit 1
