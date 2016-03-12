@@ -6,5 +6,5 @@ notifications:
     email: false
 
 script:
-    - ./install-julia.sh
+    - sudo ./install-julia.sh
     - julia test/simple.jl
