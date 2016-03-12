@@ -8,8 +8,9 @@ fi
 # Install Intel compilers
 wget -q -O /tmp/install-icc.sh \
     "https://raw.githubusercontent.com/sunoru/julia-icc-travis/master/install-icc.sh"
-bash /tmp/install-icc.sh --components icc,ifort,mkl --dest ${HOME}/intel || exit 1
-source ${HOME}/intel/compilers_and_libraries_2016/linux/bin/compilervars.sh intel64 && echo "Source completed"
+chmod 755 /tmp/install-icc.sh
+/tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel || exit 1
+source /opt/intel/bin/compilervars.sh intel64 && echo "Source completed"
 
 # Get the source of Julia and compile it.
 JULIA_VERSION="release-0.4"
