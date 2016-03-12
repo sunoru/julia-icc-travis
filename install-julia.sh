@@ -9,7 +9,7 @@
 wget -q -O /tmp/install-icc.sh \
     "https://raw.githubusercontent.com/sunoru/julia-icc-travis/master/install-icc.sh"
 chmod 755 /tmp/install-icc.sh
-sudo /tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel || exit 1
+sudo /tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel --tmpdir /root/tmp || exit 1
 source /opt/intel/bin/compilervars.sh intel64 && echo "Source completed"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/ism/bin/intel64
 
@@ -18,7 +18,7 @@ JULIA_VERSION="release-0.4"
 if [ $# == 1 ]; then
     JULIA_VERSION=$1
 fi
-cd /tmp
+cd $HOME
 git clone https://github.com/JuliaLang/julia.git --depth 1 --branch $JULIA_VERSION || exit 1
 mv julia julia-source
 cd julia-source
