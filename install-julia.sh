@@ -30,5 +30,5 @@ echo "USE_INTEL_MKL_FFT = 1" >> Make.user
 echo "USE_INTEL_LIBM = 1" >> Make.user
 which icc || exit 1
 make -j 3
-sudo ln -s /tmp/julia-source/bin/julia /usr/local/bin/julia
+sudo ln -s /tmp/julia-source/bin/julia /usr/bin/julia
 julia -e 'versioninfo()' || exit 1
