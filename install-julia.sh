@@ -9,7 +9,7 @@
 wget -q -O /tmp/install-icc.sh \
     "https://raw.githubusercontent.com/sunoru/julia-icc-travis/master/install-icc.sh"
 chmod 755 /tmp/install-icc.sh
-sudo /tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel || exit 1
+sudo /tmp/install-icc.sh --components icc,ifort,mkl,ipp --dest /opt/intel || exit 1
 source /opt/intel/bin/compilervars.sh intel64 && echo "Source completed"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/ism/bin/intel64
 
@@ -29,8 +29,8 @@ echo "USE_INTEL_MKL = 1" >> Make.user
 echo "USE_INTEL_MKL_FFT = 1" >> Make.user
 echo "USE_INTEL_LIBM = 1" >> Make.user
 which icc || exit 1
-ls -alh /opt/intel/compilers_and_libraries_2016.0.109/linux/compiler/lib/intel64
-ls -alh /opt/intel/compilers_and_libraries_2016.0.109/linux/mkl/lib/intel64
+ls -alh /opt/intel/compilers_and_libraries_2016.0.109/linux/compiler/lib/intel64/
+ls -alh /opt/intel/compilers_and_libraries_2016.0.109/linux/mkl/lib/intel64/
 #make -j 3
 #cat /tmp/julia-source/deps/libuv/config.log
 export PATH=$PAHT:/tmp/julia-source/bin
