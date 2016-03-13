@@ -171,17 +171,9 @@ fi
 
 # Apparently the installer drops the license file in a location it
 # doesn't know to check.
-ln -s "${DESTINATION}"/licenses ~/Licenses
+ln -s "${DESTINATION}"/licenses /home/travis/Licenses
 
-# We can't just export a new path since it will not persist to the
-# next item in our .travis.yml, and adding a line to ~/.bashrc doesn't
-# work either, so we'll just dump a bunch of symlinks in a directory
-# which is already in $PATH.
-#SYMDIR="${HOME}/.local/bin"
-#if [ ! -e "${SYMDIR}" ]; then
-#    mkdir -p "${SYMDIR}"
-#fi
-
-# ls -l "${DESTINATION}"/compilers_and_libraries_*/linux/bin
+echo ". \"${DESTINATION}/bin/compilervars.sh\" intel64" >> /home/travis/.bashrc
+echo "export LD_LIBRARY_PATH=\"${DESTINATION}/ism/bin/intel64:${DESTINATION}/lib/intel64_lin:\$LD_LIBRARY_PATH\"" >> /home/travis/.bashrc
 
 echo "Installation successful!"

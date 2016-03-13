@@ -10,7 +10,7 @@ wget -q -O /tmp/install-icc.sh \
     "https://raw.githubusercontent.com/sunoru/julia-icc-travis/master/install-icc.sh"
 chmod 755 /tmp/install-icc.sh
 sudo /tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel --tmpdir /root/tmp || exit 1
-source /opt/intel/bin/compilervars.sh intel64 && echo "Source completed"
+. ~/.bashrc intel64 && echo "Source completed"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/ism/bin/intel64
 
 # Get the source of Julia and compile it.
@@ -30,5 +30,6 @@ echo "USE_INTEL_MKL_FFT = 1" >> Make.user
 echo "USE_INTEL_LIBM = 1" >> Make.user
 which icc || exit 1
 make -j 3
-sudo make install
+echo "Make completed"
+sudo make install && echo "Successfully installed"
 julia -e 'versioninfo()' || exit 1
