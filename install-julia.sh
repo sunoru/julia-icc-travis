@@ -19,15 +19,14 @@ JULIA_VERSION="release-0.4"
 if [ $# == 1 ]; then
     JULIA_VERSION=$1
 fi
-PREFIX=$(pwd)/julia-$JULIA_VERSION
 if [ -e PREFIX ]; then
     echo "This version has already been installed"
     exit 1
 fi
 cd $HOME
-git clone https://github.com/JuliaLang/julia.git --depth 1 --branch $JULIA_VERSION || exit 1
-mv julia julia-source
-cd julia-source
+git clone --depth 1 --branch $JULIA_VERSION https://github.com/JuliaLang/julia.git julia-$JULIA_VERSION || exit 1
+cd julia-$JULIA_VERSION
+PREFIX=$(pwd)/installed
 echo "Build Julia of version $JULIA_VERSION"
 echo "USEICC = 1" > Make.user
 echo "USEIFC = 1" >> Make.user
@@ -40,4 +39,6 @@ make -j 3
 echo "Make completed"
 sudo bash -c ". /home/travis/.bashrc && make install" && echo "Successfully installed"
 sudo ln -s $PREFIX/bin/julia /usr/local/bin/julia-$JULIA_VERSION
+sudo rm -f /usr/local/bin/julia
+sudo ln -s $PREFIX/bin/julia /usr/local/bin/julia
 julia-$JULIA_VERSION -e 'versioninfo()' || exit 1

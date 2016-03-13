@@ -9,6 +9,7 @@ Use install-julia.sh [branch-name] in `before_install`. For example,
 `/tmp/install-julia.sh release-0.3`
 
 Use `julia-VERSION` to run julia, e.g. `julia-release-0.3 foo.jl`
+Command `julia` indicates the last installed version of julia.
 
 The defalt version of julia is 0.4.
 
