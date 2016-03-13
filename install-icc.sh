@@ -28,7 +28,7 @@ COMPONENTS_GDB="intel-gdb-gt__x86_64;intel-gdb-gt-src__noarch;intel-gdb-gt-libel
 COMPONENTS_DAAL="intel-daal__x86_64;intel-daal-common__noarch"
 
 DESTINATION="${HOME}/intel"
-TEMPORARY_FILES="/tmp"
+TEMPORARY_FILES="${HOME}/tmp"
 PHONE_INTEL="no"
 COMPONENTS=""
 
