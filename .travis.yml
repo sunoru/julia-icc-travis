@@ -7,5 +7,7 @@ notifications:
 
 script:
     - ./install-julia.sh
+    - ./install-julia.sh release-0.3
     - . ~/.bashrc
-    - julia test/simple.jl
+    - julia-release-0.4 test/simple.jl
+    - julia-release-0.3 test/simple.jl

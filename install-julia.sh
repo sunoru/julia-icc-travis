@@ -39,5 +39,5 @@ which icc || exit 1
 make -j 3
 echo "Make completed"
 sudo bash -c ". /home/travis/.bashrc && make install" && echo "Successfully installed"
-sudo ln -s $PREFIX/bin/julia /usr/local/julia-$JULIA_VERSION
+sudo ln -s $PREFIX/bin/julia /usr/local/bin/julia-$JULIA_VERSION
 julia-$JULIA_VERSION -e 'versioninfo()' || exit 1
