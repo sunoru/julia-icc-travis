@@ -34,5 +34,5 @@ echo "USE_INTEL_LIBM = 1" >> Make.user
 which icc || exit 1
 make -j 3
 echo "Make completed"
-sudo make install && echo "Successfully installed"
+sudo bash -c ". /home/travis/.bashrc && make install" && echo "Successfully installed"
 julia -e 'versioninfo()' || exit 1
