@@ -10,7 +10,7 @@ wget -q -O /tmp/install-icc.sh \
     "https://raw.githubusercontent.com/sunoru/julia-icc-travis/master/install-icc.sh"
 chmod 755 /tmp/install-icc.sh
 sudo /tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel --tmpdir /root/tmp || exit 1
-source ~/.bashrc && echo "Source completed"
+. ~/.bashrc && echo "Source completed"
 
 cat ~/.bashrc
 echo $PATH
