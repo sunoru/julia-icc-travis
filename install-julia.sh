@@ -10,8 +10,11 @@ wget -q -O /tmp/install-icc.sh \
     "https://raw.githubusercontent.com/sunoru/julia-icc-travis/master/install-icc.sh"
 chmod 755 /tmp/install-icc.sh
 sudo /tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel --tmpdir /root/tmp || exit 1
-. ~/.bashrc intel64 && echo "Source completed"
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/ism/bin/intel64
+. /home/travis/.bashrc && echo "Source completed"
+
+cat ~/.bashrc
+cat $PATH
+cat $LD_LIBRARY_PATH
 
 # Get the source of Julia and compile it.
 JULIA_VERSION="release-0.4"

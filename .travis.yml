@@ -7,5 +7,5 @@ notifications:
 
 script:
     - ./install-julia.sh
-    - . ~/.bashrc intel64
+    - . ~/.bashrc
     - julia test/simple.jl
