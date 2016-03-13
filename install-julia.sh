@@ -27,6 +27,7 @@ echo "USEIFC = 1" >> Make.user
 echo "USE_INTEL_MKL = 1" >> Make.user
 echo "USE_INTEL_MKL_FFT = 1" >> Make.user
 echo "USE_INTEL_LIBM = 1" >> Make.user
+echo "prefix = /usr/local" >> Make.user
 which icc || exit 1
 make -j 3
 echo "Make completed"
