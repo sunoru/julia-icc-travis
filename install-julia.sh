@@ -20,6 +20,10 @@ if [ $# == 1 ]; then
     JULIA_VERSION=$1
 fi
 PREFIX=$(pwd)/julia-$JULIA_VERSION
+if [ -e PREFIX ]; then
+    echo "This version has already been installed"
+    exit 1
+fi
 cd $HOME
 git clone https://github.com/JuliaLang/julia.git --depth 1 --branch $JULIA_VERSION || exit 1
 mv julia julia-source
