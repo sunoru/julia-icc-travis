@@ -13,8 +13,8 @@ sudo /tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel --tmpdir /
 . /home/travis/.bashrc && echo "Source completed"
 
 cat ~/.bashrc
-cat $PATH
-cat $LD_LIBRARY_PATH
+echo $PATH
+echo $LD_LIBRARY_PATH
 
 # Get the source of Julia and compile it.
 JULIA_VERSION="release-0.4"
