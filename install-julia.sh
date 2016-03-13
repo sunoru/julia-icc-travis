@@ -12,10 +12,6 @@ chmod 755 /tmp/install-icc.sh
 sudo /tmp/install-icc.sh --components icc,ifort,mkl --dest /opt/intel --tmpdir /root/tmp || exit 1
 . ~/.bashrc && echo "Source completed"
 
-cat ~/.bashrc
-echo $PATH
-echo $LD_LIBRARY_PATH
-
 # Get the source of Julia and compile it.
 JULIA_VERSION="release-0.4"
 if [ $# == 1 ]; then
