@@ -173,7 +173,8 @@ fi
 # doesn't know to check.
 ln -s "${DESTINATION}"/licenses /home/travis/Licenses
 
-echo ". \"${DESTINATION}/bin/compilervars.sh\" intel64" >> /home/travis/.bashrc
+echo "echo \"sourcing\"" >> /home/travis/.bashrc
+echo "source \"${DESTINATION}/bin/compilervars.sh\" intel64" >> /home/travis/.bashrc
 echo "export LD_LIBRARY_PATH=\"${DESTINATION}/ism/bin/intel64:${DESTINATION}/lib/intel64_lin:\$LD_LIBRARY_PATH\"" >> /home/travis/.bashrc
 
 echo "Installation successful!"
