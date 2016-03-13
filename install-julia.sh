@@ -19,7 +19,7 @@ JULIA_VERSION="release-0.4"
 if [ $# == 1 ]; then
     JULIA_VERSION=$1
 fi
-if [ -e PREFIX ]; then
+if [ -e $HOME/julia-$JULIA_VERSION ]; then
     echo "This version has already been installed"
     exit 1
 fi
